@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Produto {
@@ -18,9 +19,10 @@ public class Produto {
 	private String nome;
 	private String descricao;
 	private double preco;
+	private String img;
 	
-	@OneToMany(mappedBy = "produto")
-	private List<Caracteristicas> caracteristicas = new ArrayList<Caracteristicas>();
+	@OneToOne(mappedBy = "produto")
+	private Caracteristicas caracteristicas;
 
 	public long getId() {
 		return id;
@@ -46,6 +48,14 @@ public class Produto {
 		this.descricao = descricao;
 	}
 
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
 	public double getPreco() {
 		return preco;
 	}
@@ -54,11 +64,11 @@ public class Produto {
 		this.preco = preco;
 	}
 
-	public List<Caracteristicas> getCaracteristicas() {
+	public Caracteristicas getCaracteristicas() {
 		return caracteristicas;
 	}
 
-	public void setCaracteristicas(List<Caracteristicas> caracteristicas) {
+	public void setCaracteristicas(Caracteristicas caracteristicas) {
 		this.caracteristicas = caracteristicas;
 	}
 	

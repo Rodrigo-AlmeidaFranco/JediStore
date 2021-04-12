@@ -25,22 +25,14 @@ public class Usuario implements UserDetails{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Getter
-	@Setter
 	@Id
 	@GeneratedValue( strategy = GenerationType.IDENTITY )
 	private Long id;
 	
-	@Getter
-	@Setter
 	private String nome;
 	
-	@Getter
-	@Setter
 	private String email;
 	
-	@Getter
-	@Setter
 	private String senha;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
@@ -104,6 +96,46 @@ public class Usuario implements UserDetails{
 	@Override
 	public boolean isEnabled() {
 		return true;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public List<Cliente> getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(List<Cliente> cliente) {
+		this.cliente = cliente;
 	}
 	
 	
